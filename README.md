@@ -52,20 +52,19 @@ By the final review, this README should clearly show:
 # 1. Team Identity
 
 ## 1.1 Studio / Group Name
-`[Enter your group name]`
+`Samyukta: Empire State Building`
 
 ## 1.2 Team Members
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Student 1]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
-| `[Student 2]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
+| `[Samyukta Sreeram]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
 
 ## 1.3 Project Title
-`[Enter the title of your project]`
+`[Empire State of Mind]`
 
 ## 1.4 One-Line Pitch
-`[Describe your project in one sentence]`
+`[An Interactive reaction game involving a light up Empire State Building to test the player's pattern recognition and memory.]`
 
 ## 1.5 Expanded Project Idea
 In 1–2 paragraphs, explain:
