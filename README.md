@@ -100,7 +100,7 @@ Answer the following:
 - Why would someone want to try it again?
 
 **Response:**  
-`[Write here]`
+`The experience of this installation is a tactile, real-time memory and pattern game. The player should feel a mix of nervous focus during the pattern display, tension while inputting, and a rush of satisfaction or disappointment depending on the outcome. The reward system of buzzer sounds and coloured lights, and architectural feedback (lighting up the building floor by floor) creates strong engagement and motivation to replay.`
 
 ## 2.3 Design Persona
 Complete the sentence below:
@@ -108,7 +108,7 @@ Complete the sentence below:
 > We are designing this project as if we are a small creative studio making a **[toy / game / playable object / interactive experience]** for **[children / teens / adults / classmates / exhibition visitors / mixed audience]**.
 
 **Response:**  
-`We are designing this project as if we are a small creative studio making an interactive an experential sensory game for exhibition visitors who are competitive, `
+`We are designing this project as if we are a small creative studio making an interactive and experential sensory game for exhibition visitors who are competitive, `
 
 ---
 
@@ -127,7 +127,7 @@ List what inspired the project.
 What makes your project original?
 
 **Response:**  
-`[Write here]`
+`Empire State of Mind transforms a simple game into an architectural interaction with a feedback system that keeps the player on edge but simultaneously wanting to play more.`
 
 ---
 
@@ -143,7 +143,7 @@ Examples:
 - move object → sensor detects → sound/light response → player reacts
 
 **Response:**  
-`[Write here]`
+`start game ---> watch pattern ---> remember ---> touch ---> react ---> repeat w next level`
 
 ## 4.2 Intended Player / Audience
 
@@ -151,10 +151,10 @@ Examples:
 |---|---|
 | Who is this for? | `[Write here]` |
 | Age range | `[Write here]` |
-| Solo or multiplayer | `[Write here]` |
-| Expected duration of one round | `[Write here]` |
-| What should the player feel? | `[Write here]` |
-| Is explanation required before use? | `[Write here]` |
+| Solo or multiplayer | `Solo player` |
+| Expected duration of one round | `15-20 seconds` |
+| What should the player feel? | `Anxiety, tension, excitement, reward` |
+| Is explanation required before use? | `Very slight - pretty self explanatory after watching 1 or 2 rounds.` |
 
 ## 4.3 Player Journey
 Describe exactly how a player will use the project.
