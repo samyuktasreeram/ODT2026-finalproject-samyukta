@@ -159,21 +159,23 @@ Examples:
 ## 4.3 Player Journey
 Describe exactly how a player will use the project.
 
-1. **Approach:** `[How does the player first encounter it?]`
-2. **Start:** `[How do they begin?]`
-3. **First Action:** `[What do they do first?]`
-4. **Main Interaction:** `[What keeps happening during use?]`
-5. **System Response:** `[How does the project respond?]`
-6. **Win / Lose / End Condition:** `[How does one round end?]`
-7. **Reset:** `[How does the next round begin?]`
+1. **Approach:** `Player sees a dimly glowing Empire State Building model in idle mode. (Laptop screen says "Touch to start.")`
+2. **Start:** `Player touches the start pad to begin plaaying the game. All strips flash white and the game begins.`
+3. **First Action:** `The first 'level' (first 2 LED strips) flash a 4-step pattern.`
+4. **Main Interaction:** `The player has to observe, remember and replicate the pattern by touching the touchpads in the correct order.`
+5. **System Response:** `The correct input of the pattern triggers purple confirmation flashes and a happy buzz; and the player moves to the next level. Wrong inputs trigger a red flash and a descending buzz, and the game restarts.`
+6. **Win / Lose / End Condition:** `A player can win the game by completing 3 levels/ rounds of pattern replication. The game ends and restarts on any wrong input.`
+7. **Reset:** `On completion, the LEDs clear, and the system returns to an idle glow, waiting for the start pad again.`
 
 ## 4.4 Rules of Play
 If your project is a game, list the rules clearly.
 
-- `[Rule 1]`
-- `[Rule 2]`
-- `[Rule 3]`
-- `[Rule 4]`
+
+- `Press the start button to commence the game.`
+- `Watch the LED pattern carefully — it plays only once.`
+- `Touch the pads in the exact same order as the pattern shown`
+- `You have 3 levels to complete; each uses a different section of the building, and the pattern on the next level starts as soon as the previous level finishes.`
+- `One wrong input ends the game immediately and it goes back to the start mode.`
 
 ---
 
@@ -182,17 +184,17 @@ If your project is a game, list the rules clearly.
 ## 5.1 Definition of “Playable”
 Your project will be considered complete only if these conditions are met.
 
-- [ ] `[Condition 1]`
-- [ ] `[Condition 2]`
-- [ ] `[Condition 3]`
-- [ ] `[Condition 4]`
-- [ ] `[Condition 5]`
+- [ ] `Start touchpin works reliably to commence the game`
+- [ ] `All 3 LED strips respond correctly to game state`
+- [ ] `Touch pads register input reliably without false triggers`
+- [ ] `Win and lose states both trigger distinct light + sound feedback`
+- [ ] `Game resets cleanly after every round`
 
 ## 5.2 Minimum Viable Version
 What is the smallest version of this project that still delivers the core experience?
 
 **Response:**  
-`[Write here]`
+`The smallest version would be a single LED strip running one level of the pattern game with working touch input, correct/wrong buzzer feedback, and a basic reset.`
 
 ## 5.3 Stretch Features
 What features are nice to have but not essential?
@@ -208,17 +210,17 @@ What features are nice to have but not essential?
 ## 6.1 Project Type
 Check all that apply.
 
-- [ ] Electronics-based
+- [/] Electronics-based
 - [ ] Mechanical
-- [ ] Sensor-based
+- [/] Sensor-based
 - [ ] App-connected
 - [ ] Motorized
-- [ ] Sound-based
-- [ ] Light-based
+- [/] Sound-based
+- [/] Light-based
 - [ ] Screen/UI-based
-- [ ] Fabricated structure
-- [ ] Game logic based
-- [ ] Installation / tabletop experience
+- [/] Fabricated structure
+- [/] Game logic based
+- [/] Installation / tabletop experience
 - [ ] Other: `[Write here]`
 
 ## 6.2 High-Level System Description
@@ -232,16 +234,18 @@ Include:
 - app interaction if any.
 
 **Response:**  
-`[Write here]`
+`The player touches a start pad to wake the system. An ESP32 microcontroller generates a random 4-step pattern and flashes it on one of 3 NeoPixel LED strips embedded in an Empire State Building model. The player reproduces the pattern using 6 capacitive touch pads. The ESP32 compares the input to the pattern and triggers buzzer tones and LED colors to signal correct or incorrect responses. 3 successful levels triggers a full building light-up and a win melody on the buzzer.`
 
 ## 6.3 Input / Output Map
 
 | System Part | Type | What It Does |
 |---|---|---|
-| `[Button / Sensor / Switch / App Input]` | Input | `[Describe]` |
-| `[ESP32 / Controller]` | Processing | `[Describe]` |
-| `[LED / Motor / Servo / Buzzer / Display]` | Output | `[Describe]` |
-| `[Mechanical Assembly]` | Physical Action | `[Describe]` |
+| `[Start touch pad]` | Input | `[Wakes the game from idle state]` |
+| `[6 Capacitive touch pads]` | Input | `[Detect player finger input for pattern reproduction]` |
+| `[ESP32]` | Processing | `[Runs game logic, generates patterns, compares input, controls outputs]` |
+| `[6 NeoPixel LED strips]` | Output | `[Display patterns, confirm input, signal win/lose states]` |
+| `[Buzzer]` | Output | `[Plays correct, wrong, and win sound feedback]` |
+| `[Mechanical Assembly]` | Physical Action | `[.]` |
 
 ---
 
@@ -338,8 +342,9 @@ What changed after the CAD, animation, or simulation stage?
 | Component | Quantity | Purpose |
 |---|---:|---|
 | `[ESP32]` | `1` | `[Main controller]` |
-| `[Component]` | `[Qty]` | `[Purpose]` |
-| `[Component]` | `[Qty]` | `[Purpose]` |
+| `[NeoPixel LED strip (6 LEDs)]` | `[6]` | `[Game display — 2 per level.]` |
+| `[Capacitive touch pads]` | `[7]` | `[Player input]` |
+| `[Buzzer]` | `[1]` | `[Audio feedback]` |
 
 ## 9.2 Wiring Plan
 Describe the main electrical connections.
