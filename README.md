@@ -52,13 +52,13 @@ By the final review, this README should clearly show:
 # 1. Team Identity
 
 ## 1.1 Studio / Group Name
-`Samyukta: Empire State Building`
+`Samyukta: Empire State of Mind`
 
 ## 1.2 Team Members
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Samyukta Sreeram]` | `[Electronics / Coding / App / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
+| `[Samyukta Sreeram]` | `Electronics / Coding / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
 
 ## 1.3 Project Title
 `[Empire State of Mind]`
@@ -74,7 +74,7 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`[Write here]`
+`Empire State of Mind is a gamified interaction in which the player lights up a building by accomplishing levels of a pattern-remembrance game. It provides an engaging experience through the varied use of coloured lights and stimulating buzzer sounds, enabling a pattern of psychological reinforcement that   ]`
 
 ---
 
@@ -108,7 +108,7 @@ Complete the sentence below:
 > We are designing this project as if we are a small creative studio making a **[toy / game / playable object / interactive experience]** for **[children / teens / adults / classmates / exhibition visitors / mixed audience]**.
 
 **Response:**  
-`[Write here]`
+`We are designing this project as if we are a small creative studio making an interactive an experential sensory game for exhibition visitors who are competitive, `
 
 ---
 
@@ -407,16 +407,106 @@ Suggested sequence:
 ## 10.4 Pseudocode
 
 ```text
-[Write your pseudocode here]
-```
+SETUP:
+  Define 6 LEDs per strip, 30% brightness
+  Initialize 3 LED strips on pins 18, 19, 21
+  Initialize 6 touch pads on pins 15, 4, 27, 14, 12, 13
+  Initialize buzzer on pin 32
+  Set touch threshold = 100
 
----
+
+HELPER FUNCTIONS:
+
+  dim(color):
+    Return color scaled down to 30% brightness
+
+  buzz_wrong():
+    Play two descending low tones (sad sound)
+
+  buzz_correct():
+    Play four ascending tones (happy sound)
+
+  buzz_win():
+    Play a 7-note victory melody
+
+  clear_all():
+    Turn off every LED on all 3 strips
+
+  fill_strip(strip, color):
+    Set all LEDs on a strip to a given color instantly
+
+  fill_strip_animated(strip, color):
+    Set LEDs one by one with a short delay (sweeping effect)
+
+  flash_pattern(strip, pattern):
+    FOR each index in pattern:
+      Light up that LED → wait 0.5s → turn it off → wait 0.3s
+
+  get_touch():
+    LOOP forever:
+      FOR each touch pad:
+        IF pad is touched (reading < threshold):
+          Wait briefly (debounce)
+          RETURN the index of that pad
+
+  get_player_input(length, strip):
+    REPEAT 'length' times:
+      Wait for a touch → record it
+      Briefly flash that LED purple to confirm input
+    RETURN list of recorded touches
+
+  show_result_all(correct):
+    IF correct → fill all strips with teal
+    ELSE       → fill all strips with red/pink
+    Wait 1 second → clear all
+
+  win_animation():
+    Flash all strips purple ON/OFF 5 times
+    Keep all strips lit for 7 seconds
+    Clear all
+
+
+WAIT FOR START:
+  LOOP forever:
+    Set all strips to dim green-teal (idle glow)
+    IF start pad is touched:
+      Flash all strips white → wait → clear → EXIT loop
+
+
+MAIN GAME LOOP (runs forever):
+
+  Wait for start touch
+  Clear all LEDs
+
+  FOR level 1 to 3:
+    Select the strip for this level
+
+    Generate a random pattern of 4 touch-pad indices (0–5)
+    Show the pattern on the strip using flash_pattern()
+
+    Record player input (4 touches) using get_player_input()
+
+    IF player input matches the pattern:
+      Play correct sound
+      Animate strip fill (purple sweep)
+
+    ELSE:
+      Play wrong sound
+      Flash all strips red
+      Mark game as over → BREAK out of level loop
+
+  IF all 3 levels passed:
+    Play win melody
+    Play win animation (purple flashing + hold)
+
+  Clear all LEDs
+  Print "Waiting to restart..." → loop back to start
 
 # 11. MIT App Inventor Plan
 
 ## 11.1 Is an app part of this project?
 - [ ] Yes
-- [ ] No
+- [/] No
 
 If yes, complete this section.
 
@@ -507,8 +597,7 @@ If your cost is too high, what can be simplified, removed, substituted, or share
 
 # 13. Planning the Work
 
-## 13.1 Team Working Agreement
-Write how your team will work together.
+## 13.1 Team Working Agreement - not applicable (working individually)
 
 Include:
 - how tasks are divided,
@@ -524,16 +613,16 @@ Include:
 
 | Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
 |---|---|---|---:|---|---|---|
-| T1 | `[Finalize concept]` | `[Name]` | `2` | `[Date]` | `None` | `To Do` |
-| T2 | `[Complete BOM]` | `[Name]` | `1` | `[Date]` | `T1` | `To Do` |
-| T3 | `[Test electronics]` | `[Name]` | `2` | `[Date]` | `T1` | `To Do` |
-| T4 | `[Build structure]` | `[Name]` | `4` | `[Date]` | `T1` | `To Do` |
-| T5 | `[Write control code]` | `[Name]` | `4` | `[Date]` | `T3` | `To Do` |
-| T6 | `[Integrate system]` | `[Name]` | `4` | `[Date]` | `T4, T5` | `To Do` |
-| T7 | `[Playtest]` | `[Name]` | `2` | `[Date]` | `T6` | `To Do` |
-| T8 | `[Refine and document]` | `[Name]` | `3` | `[Date]` | `T7` | `To Do` |
+| T1 | `[Finalize concept]` | `2` | `[Date]` | `None` | `Done` |
+| T2 | `[Complete BOM]`| `1` | `[Date]` | `T1` | `Done` |
+| T3 | `[Test electronics]`| `2` | `[Date]` | `T1` | `Done` |
+| T4 | `[Build structure]`| `4` | `[Date]` | `T1` | `Done` |
+| T5 | `[Write control code]`| `4` | `[Date]` | `T3` | `Done` |
+| T6 | `[Integrate system]`| `4` | `[Date]` | `T4, T5` | `Done` |
+| T7 | `[Playtest]`| `2` | `[Date]` | `T6` | `To Do` |
+| T8 | `[Refine and document]`| `3` | `[Date]` | `T7` | `To Do` |
 
-## 13.3 Responsibility Split
+## 13.3 Responsibility Split - not applicable (working individually)
 
 | Area | Main Owner | Support Owner |
 |---|---|---|
