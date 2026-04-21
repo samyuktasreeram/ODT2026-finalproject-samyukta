@@ -74,7 +74,7 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`Empire State of Mind is a gamified interaction in which the player lights up a building by accomplishing levels of a pattern-remembrance game. It provides an engaging experience through the varied use of coloured lights and stimulating buzzer sounds, enabling a pattern of psychological reinforcement that   ]`
+`Empire State of Mind is a gamified interaction in which the player lights up a building by accomplishing levels of a pattern-remembrance game. It provides an engaging experience through the varied use of coloured lights and stimulating buzzer sounds, enabling a pattern of psychological reinforcement that keeps a player wanting to keep coming back for more, and inspiring a sense of competitiveness and challenge in them. The coloured lights and sound effects are accomplished through NeoPixel strips and a buzzer connected to an ESP 32.`
 
 ---
 
