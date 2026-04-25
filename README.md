@@ -58,7 +58,7 @@ By the final review, this README should clearly show:
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Samyukta Sreeram]` | `Electronics / Coding / Fabrication / Mechanics]` | `[Role]` | `[Write here]` |
+| `[Samyukta Sreeram]` | `[Electronics / Coding / Fabrication / Mechanics]` | `[Documentation]` | `[hardware-software integration, creative game design, independent problem solving, building skills, adaptability, detail orientation.]`|
 
 ## 1.3 Project Title
 `[Empire State of Mind]`
