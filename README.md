@@ -74,7 +74,9 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`Empire State of Mind is a gamified interaction in which the player lights up a building by accomplishing levels of a pattern-remembrance game. It provides an engaging experience through the varied use of coloured lights and stimulating buzzer sounds, enabling a pattern of psychological reinforcement that keeps a player wanting to keep coming back for more, and inspiring a sense of competitiveness and challenge in them. The coloured lights and sound effects are accomplished through NeoPixel strips and a buzzer connected to an ESP 32.`
+`Empire State of Mind is a gamified, physical interaction in which the player lights up a model of the Empire State Building by completing three levels of a pattern-memory game. Each level corresponds to a section of the building's facade, lit by 2 dedicated LED strips. The game flashes a sequence of touch-pad positions for the player to memorise and reproduce — getting harder to remember as the pressure mounts. Correct answers reward the player with ascending tones and a purple light sweep; mistakes trigger a harsh buzzer and a red/ pink flash across the whole structure.
+
+What makes the experience compelling is its combination of sensory feedback and architectural storytelling. The building itself becomes a scoreboard — each successfully lit section adds to a growing, glowing structure. The buzzer sounds are deliberately emotional: satisfying when correct, jarring when wrong. This psychological push-and-pull creates a loop of tension and reward that keeps players coming back. Technologies involved include an ESP32 microcontroller, six NeoPixel LED strips, six capacitive touch pads, and a PWM buzzer, all programmed in MicroPython.`
 
 ---
 
@@ -100,7 +102,7 @@ Answer the following:
 - Why would someone want to try it again?
 
 **Response:**  
-`The experience of this installation is a tactile, real-time memory and pattern game. The player should feel a mix of nervous focus during the pattern display, tension while inputting, and a rush of satisfaction or disappointment depending on the outcome. The reward system of buzzer sounds and coloured lights, and architectural feedback (lighting up the building floor by floor) creates strong engagement and motivation to replay.`
+`The experience of this installation is a tactile, real-time memory and pattern game. The player should feel a mix of nervous focus during the pattern display, tension while inputting, and a rush of satisfaction or disappointment depending on the outcome. The reward system of buzzer sounds and coloured lights, and architectural feedback (lighting up the building floor by floor) creates strong engagement and motivation to replay, and the pattern is randomly generated each round, so no two games are identical.`
 
 ## 2.3 Design Persona
 Complete the sentence below:
@@ -119,9 +121,9 @@ List what inspired the project.
 
 | Source Type | Title / Link | What Inspired You |
 |---|---|---|
-| `[Toy / Board game / App / Video / Website / Object]` | `[Link or title]` | `[What did you learn or borrow?]` |
-| `[Toy / Board game / App / Video / Website / Object]` | `[Link or title]` | `[What did you learn or borrow?]` |
-| `[Toy / Board game / App / Video / Website / Object]` | `[Link or title]` | `[What did you learn or borrow?]` |
+| `Toy / Game` | `Simon (Hasbro, 1978)` | `Core mechanic: show a colour/sound pattern, player repeats it. Borrowed the escalating-pressure structure.` |
+| `Interactive installation` | `TeamLab Borderless, Tokyo` | `Architecture as canvas — the idea that a physical structure can be a dynamic output display.` |
+| `Video game` | `Bop It! (Hasbro)` | `Single-player reflex game with multi-modal feedback (sound + light). Inspired the buzzer tone design.` |
 
 ## 3.2 Original Twist
 What makes your project original?
@@ -143,14 +145,14 @@ Examples:
 - move object → sensor detects → sound/light response → player reacts
 
 **Response:**  
-`start game ---> watch pattern ---> remember ---> touch ---> react ---> repeat w next level`
+`start game ---> watch pattern ---> remember ---> touch ---> react ---> repeat w next level (advance or restart)`
 
 ## 4.2 Intended Player / Audience
 
 | Question | Response |
 |---|---|
-| Who is this for? | `[Write here]` |
-| Age range | `[Write here]` |
+| Who is this for? | `[Exhibition visitors, anyone encountering it in an open display context]` |
+| Age range | `[10+ yr olds to]` |
 | Solo or multiplayer | `Solo player` |
 | Expected duration of one round | `15-20 seconds` |
 | What should the player feel? | `Anxiety, tension, excitement, reward` |
@@ -199,9 +201,9 @@ What is the smallest version of this project that still delivers the core experi
 ## 5.3 Stretch Features
 What features are nice to have but not essential?
 
-- `[Stretch feature 1]`
-- `[Stretch feature 2]`
-- `[Stretch feature 3]`
+- `[Increasing pattern length as difficulty ramps up across levels (e.g. 4 → 5 → 6 steps).]`
+- `[A high-score timer displayed via serial or a small OLED screen]`
+- `[possibly a 2 or multiplayer competitive mode where they take turns]`
 
 ---
 
@@ -234,7 +236,11 @@ Include:
 - app interaction if any.
 
 **Response:**  
-`The player touches a start pad to wake the system. An ESP32 microcontroller generates a random 4-step pattern and flashes it on one of 3 NeoPixel LED strips embedded in an Empire State Building model. The player reproduces the pattern using 6 capacitive touch pads. The ESP32 compares the input to the pattern and triggers buzzer tones and LED colors to signal correct or incorrect responses. 3 successful levels triggers a full building light-up and a win melody on the buzzer.`
+`The player touches a start pad to wake the system. An ESP32 microcontroller generates a random 4-step pattern and flashes it on one of 3 NeoPixel LED strips embedded in an Empire State Building model. The player reproduces the pattern using 6 capacitive touch pads. The ESP32 compares the input to the pattern and triggers buzzer tones and LED colors to signal correct or incorrect responses. 3 successful levels triggers a full building light-up and a win melody on the buzzer.
+**Input:** 6 capacitive touch pads + 1 start pad  
+**Processing:** ESP32 running MicroPython game logic  
+**Output:** 3 NeoPixel LED strips (18 LEDs total) + PWM buzzer  
+**Structure:** Fabricated Empire State Building model`
 
 ## 6.3 Input / Output Map
 
@@ -245,7 +251,7 @@ Include:
 | `[ESP32]` | Processing | `[Runs game logic, generates patterns, compares input, controls outputs]` |
 | `[6 NeoPixel LED strips]` | Output | `[Display patterns, confirm input, signal win/lose states]` |
 | `[Buzzer]` | Output | `[Plays correct, wrong, and win sound feedback]` |
-| `[Mechanical Assembly]` | Physical Action | `[.]` |
+| `[Building the structure]` | Physical Action | `[to house the electronics, provide an interface and display the patterns and levels.]` |
 
 ---
 
@@ -300,13 +306,13 @@ Check all that apply.
 - [ ] Wheels
 - [ ] Sliders
 - [ ] Levers
-- [ ] Not applicable
+- [/] Not applicable
 
 ## 8.2 Mechanical Description
 Describe the mechanism and what it is meant to do.
 
 **Response:**  
-`[Write here]`
+`[n.a - This project has no moving mechanical parts. The physical build consists of a static fabricated structure. All interaction is electronic (touch input) and all output is light and sound.]`
 
 ## 8.3 Motion Planning
 If something moves, explain:
@@ -317,7 +323,7 @@ If something moves, explain:
 - what could go wrong.
 
 **Response:**  
-`[Write here]`
+`n.a`
 
 ## 8.4 Simulation / CAD / Animation Before Making
 If your project includes mechanical motion, document the digital planning before fabrication.
@@ -331,7 +337,7 @@ If your project includes mechanical motion, document the digital planning before
 What changed after the CAD, animation, or simulation stage?
 
 **Response:**  
-`[Write here]`
+`[n.a. - testing done using physical corkboard and cardboard model.]`
 
 ---
 
@@ -391,7 +397,12 @@ Include:
 - reset behavior.
 
 **Response:**  
-`[Write here]`
+-`**Startup:** Initialise LED strips, touch pads, and buzzer. Enter idle state (dim green-teal glow on all strips).`
+- `**Input handling:** Poll start pad continuously in idle loop. Poll all 6 touch pads during player input phase with debounce delay.`
+-` **Sensor reading:** TouchPad.read() returns a capacitance value — a reading below the threshold (100) registers as a confirmed touch.`
+- `**Decision logic:** After player input is collected, compare the input list directly against the stored pattern list. Match = level passed; mismatch = game over.`
+- `**Output behaviour:** Drive LED strips with dim() colour values for all visual states. Drive buzzer via PWM frequency and duty cycle for all audio states.`
+- `**Reset behaviour:** After win animation or game-over flash, clear all LEDs and return to idle start loop.]`
 
 ## 10.3 Code Flowchart
 Insert a flowchart showing your code logic.
@@ -411,8 +422,8 @@ Suggested sequence:
 
 ## 10.4 Pseudocode
 
-```text
-SETUP:
+text
+`SETUP:
   Define 6 LEDs per strip, 30% brightness
   Initialize 3 LED strips on pins 18, 19, 21
   Initialize 6 touch pads on pins 15, 4, 27, 14, 12, 13
@@ -500,12 +511,12 @@ MAIN GAME LOOP (runs forever):
       Flash all strips red
       Mark game as over → BREAK out of level loop
 
-  IF all 3 levels passed:
+  `[IF all 3 levels passed:
     Play win melody
     Play win animation (purple flashing + hold)
 
   Clear all LEDs
-  Print "Waiting to restart..." → loop back to start
+  Print "Waiting to restart..." → loop back to start]`
 
 # 11. MIT App Inventor Plan
 
@@ -527,7 +538,7 @@ Examples:
 - displaying data.
 
 **Response:**  
-`[Write here]`
+`[n.a! game is self contained on esp 32]`
 
 ## 11.3 App Features
 
@@ -558,9 +569,9 @@ Insert a sketch or screenshot of the app interface.
 
 | Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
 |---|---:|---|---|---:|---|---|
-| `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[Reason]` |
-| `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
-| `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
+| `[ESP32]` | `1` | `Yes` | `yes` | `400` | `[ESP32-WROOM-32]` | `[reqd for coding and touchpins to execute the game]` |
+| `[Neopixel LED roll]` | `[1 roll - 1 meter]` | `[no]` | `[Yes]` | `[275]` | `[5V rgb individually addressable]` | `[each led can be individually coded in the strip to flash the reqd pattern]` |
+| ` Power Supply ` | `[1]` | `[Yes/No]` | `[Yes]` | `[ Borrowed from friend thus O]` | `[Spec]` | `[Reason]` |
 
 ## 12.2 Material Justification
 Explain why you selected your main materials and components.
@@ -578,8 +589,7 @@ Examples:
 
 | Item | Why Needed | Purchase Link | Latest Safe Date to Procure | Status |
 |---|---|---|---|---|
-| `[Item]` | `[Reason]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
-| `[Item]` | `[Reason]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
+| `[spraypaint]` | `[ for presentation of the physical structure.]` | `[Link]` | `[19th April ]` | `[Received]` |
 
 ## 12.4 Budget Summary
 
@@ -618,14 +628,14 @@ Include:
 
 | Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
 |---|---|---|---:|---|---|---|
-| T1 | `[Finalize concept]` | `2` | `[Date]` | `None` | `Done` |
-| T2 | `[Complete BOM]`| `1` | `[Date]` | `T1` | `Done` |
-| T3 | `[Test electronics]`| `2` | `[Date]` | `T1` | `Done` |
-| T4 | `[Build structure]`| `4` | `[Date]` | `T1` | `Done` |
-| T5 | `[Write control code]`| `4` | `[Date]` | `T3` | `Done` |
-| T6 | `[Integrate system]`| `4` | `[Date]` | `T4, T5` | `Done` |
-| T7 | `[Playtest]`| `2` | `[Date]` | `T6` | `To Do` |
-| T8 | `[Refine and document]`| `3` | `[Date]` | `T7` | `To Do` |
+| T1 | Finalise concept and game rules | 2 | End Week 1 | None |Done |
+| T2 | Complete BOM and source materials | 1 | End Week 1 | T1 | Done |
+| T3 | Test ESP32 touch pads and LED strips | 2 | End Week 1 | T1 | Done |
+| T4 | Design and fabricate building structure | 4 | End Week 2 | T1 | To Do |
+| T5 | Write and test full game code | 4 | End Week 2 | T3 | Done |
+| T6 | Integrate electronics into structure | 4 | End Week 3 | T4, T5 | To Do |
+| T7 | Playtest with peers and refine | 2 | End Week 3 | T6 | To Do |
+| T8 | Refine, document, and finalise README | 3 | End Week 4 | T7 | To Do |
 
 ## 13.3 Responsibility Split - not applicable (working individually)
 
@@ -647,17 +657,17 @@ Include:
 
 ### Week 1 — Plan and De-risk
 Expected outcomes:
-- [ ] Idea finalized
-- [ ] Core interaction decided
+- [/] Idea finalized
+- [/] Core interaction decided
 - [ ] Sketches made
-- [ ] BOM completed
-- [ ] Purchase needs identified
+- [/] BOM completed
+- [/] Purchase needs identified
 - [ ] Key uncertainty identified
-- [ ] Basic feasibility tested
+- [/] Basic feasibility tested
 
 ### Week 2 — Build Subsystems
 Expected outcomes:
-- [ ] Electronics tests completed
+- [/] Electronics tests completed
 - [ ] CAD / structure planning completed
 - [ ] App UI started if needed
 - [ ] Mechanical concept tested
@@ -665,19 +675,19 @@ Expected outcomes:
 
 ### Week 3 — Integrate
 Expected outcomes:
-- [ ] Physical body built
-- [ ] Electronics integrated
-- [ ] Code connected to hardware
+- [-] Physical body built
+- [/] Electronics integrated
+- [/] Code connected to hardware
 - [ ] App connected if required
 - [ ] First playable version exists
 
 ### Week 4 — Refine and Finish
 Expected outcomes:
-- [ ] Technical bugs reduced
-- [ ] Playtesting completed
-- [ ] Improvements made
-- [ ] Documentation completed
-- [ ] Final build ready
+- [/] Technical bugs reduced
+- [/] Playtesting completed
+- [/] Improvements made
+- [/] Documentation completed
+- [/] Final build ready
 
 ## 14.2 Weekly Update Log
 
@@ -765,6 +775,8 @@ Include:
 
 ## 17.2 Build Photos
 Add photos throughout the project.
+
+vid link: https://www.instagram.com/reel/DXkhksPz1QL/?igsh=MWM2b2d2cmlmODFjeQ==
 
 Suggested images:
 - early sketch,
